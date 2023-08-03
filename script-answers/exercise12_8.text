@@ -1,0 +1,87 @@
+Script started on 2023-06-27 13:00:31-04:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="251" LINES="39"]
+]0;mike@Zaphod: /mnt/m/WebDev/z_tutorial_files/FSO_part12_containers/script-answers[01;32mmike@Zaphod[00m:[01;34m/mnt/m/WebDev/z_tutorial_files/FSO_part12_containers/script-answers[00m$ docker exex[Kct[K toda[Ko-backend-mongo-1[C todo-backend-mongo-1- todo-backend-mongo-1i todo-backend-mongo-1[C todo-backend-mongo-1[1Ptodo-backend-mongo-1d todo-backend-mongo-1[1P todo-backend-mongo-1t todo-backend-mongo-1[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C bash
+[?2004hroot@9cc479c2c39c:/# mongosh
+[?2004l]0;mongosh mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	649b162ca66a035a313acea3
+Connecting to:		[1m[32mmongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.0[0m
+Using MongoDB:		6.0.6
+[1m[33mUsing Mongosh[0m:		1.10.0
+
+For mongosh info see: [1mhttps://docs.mongodb.com/mongodb-shell/[0m
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the [1mdisableTelemetry()[0m command.
+
+[1G[0J [1G[1G[0Jtest> [7G
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+[1G[0Jtest> [7G
+[?2004hroot@9cc479c2c39c:/# mongosh -u root -p example
+[?2004l]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	649b164e0395a55c2a74e66c
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.0[0m
+Using MongoDB:		6.0.6
+[1m[33mUsing Mongosh[0m:		1.10.0
+
+For mongosh info see: [1mhttps://docs.mongodb.com/mongodb-shell/[0m
+
+[1G[0J [1G[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2023-06-27T17:00:51.998+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2023-06-27T17:00:52.603+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never'
+   2023-06-27T17:00:52.603+00:00: vm.max_map_count is too low
+[1m[33m------[0m
+
+[1G[0Jtest> [7Gshow ebs[1G[0Jtest> show eb[14G[1G[0Jtest> show e[13G[1G[0Jtest> show [12Gdbs
+[1madmin[0m         100.00 KiB
+[1mconfig[0m        108.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   56.00 KiB
+[1G[0Jtest> [7Guse the_database
+switched to db the_database
+[1G[0Jthe_database> [15Gshow collections
+[1mtodos[0m
+[1G[0Jthe_database> [15Gdb.todos.find({}_[1G[0Jthe_database> db.todos.find({}[31G_[1G[0Jthe_database> db.todos.find({}[31G)
+[
+  {
+    _id: ObjectId("649b013d0905f2ee60c28d6c"),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId("649b013d0905f2ee60c28d6d"),
+    text: [32m'Buy more milk'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gdi[1G[0Jthe_database> d[16Gb.todos.insertOne({
+[1G[0J... [5Gtext: [32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ms[39m[1G[0J... text: [32m"Incre[39m[17G[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mt[39m[32my[39m[1G[0J... text: [32m"Increase the number of tools in t[39m[45G[1G[0J... text: [32m"Increase the number of tools in [39m[44G[32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32mb[39m[32me[39m[32ml[39m[32mt[39m[32m"[39m,
+[1G[0J... [5Gd[36mdo[39mdone: fals[33mfalse[39m
+[1G[0J... [5G})
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId("649b171d0395a55c2a74e66d")
+}
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.insertOne({ [33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [33mfalse[39m })[103G[1G[0Jthe_database> db.todos.find({})[32G
+[
+  {
+    _id: ObjectId("649b013d0905f2ee60c28d6c"),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId("649b013d0905f2ee60c28d6d"),
+    text: [32m'Buy more milk'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId("649b171d0395a55c2a74e66d"),
+    text: [32m'Increase the number of tools in my toolbelt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15G[1G[0Jthe_database> [15G[1G[0Jthe_database> [15Gexit
+[?2004hroot@9cc479c2c39c:/# exzit   iot  t
+[?2004lexit
+]0;mike@Zaphod: /mnt/m/WebDev/z_tutorial_files/FSO_part12_containers/script-answers[01;32mmike@Zaphod[00m:[01;34m/mnt/m/WebDev/z_tutorial_files/FSO_part12_containers/script-answers[00m$ docker exec -it todo-backend-mongo-1 bash[15Pnpm install -D json-serverdocker exec -it todo-backend-mongo-1 bash[Kexit
+exit
+
+Script done on 2023-06-27 13:08:33-04:00 [COMMAND_EXIT_CODE="0"]

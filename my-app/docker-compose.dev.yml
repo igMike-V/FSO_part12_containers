@@ -1,0 +1,27 @@
+services:
+  app:
+    image: phonebook-app
+    ports:
+      - 3000:3000
+    build:
+      context: .
+      dockerfile: frontend/dev.Dockerfile
+    volumes:
+      - ./frontend:/app
+    env_file:
+      - ./frontend/.env
+    tty: true
+    container_name: app
+  
+  server:
+    image: phonebook-server
+    ports:
+      - 4000:4000
+    build:
+      context: .
+      dockerfile: backend/dev.Dockerfile
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+
